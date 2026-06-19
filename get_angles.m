@@ -3,7 +3,7 @@ function [angles] = get_angles(c3d)
 angles=struct();
 labels=c3d.parameters.POINT.LABELS.DATA;
 for i=1:length(labels)
-    if strcmp(labels{i}(end-5:end),'Angles')
+    if endsWith(labels{i},'Angles')
         angles.(labels{i})=squeeze(c3d.data.points(:,i,:))';
     end
 end
